@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+{% block title %} Home{% endblock title %}
+{% block body %}  
+
+<div class="container my-3">
+    <h2>Update Your To-Do</h2>
+    <form action="/update/{{todo.sno}}" method="POST">
+        <div class="mb-3">
+            <label for="todo" class="form-label">ADD To-Do</label>
+            <input type="text" class="form-control" id="todo" name="title" value="{{todo.tile}}" required>
+            <div id="TODO" class="form-text">Enter your to-do item here.😊</div>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <input type="text" class="form-control" id="description" name="desc" value="{{todo.desc}}" required>
+            <div id="desc" class="form-text">You can give a detailed description for your own help.😊</div>
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+</div>
+{% endblock body %}
