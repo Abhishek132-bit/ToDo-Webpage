@@ -25,10 +25,23 @@ def home_page():
         todo=ToDo(title=title,desc=desc,status='pending')
         db.session.add(todo)
         db.session.commit()
+        return redirect('/')
     alltodo=ToDo.query.all()
     return render_template("index.html",alltodo=alltodo)
     
-@app.route('/update')
+@app.route('/update/<int:sno>',methods=["GET","POST"])
+def update(sno):
+    if request.method=="POST":
+        title=request.form['title']
+        desc=request.form['desc']
+        todo=ToDo.query.filter_by(sno=sno).first()
+        todo.title=title
+        todo.desc=desc
+        db.session.add(todo)
+        db.session.commit()
+        return redirect('/')
+    todo=ToDo.query.filter_by(sno=sno).first()
+    return render_template("update.html",todo=todo)
 
 @app.route('/delete/<int:sno>')
 def delete(sno):

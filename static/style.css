@@ -1,0 +1,400 @@
+/* =========================================
+   MyToDo — CSS Stylesheet (Bootstrap Override)
+   Theme: Soft Productivity / Warm Minimal
+   ========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap');
+
+/* ── CSS Variables ── */
+:root {
+  --bg:             #f5f0e8;
+  --surface:        #fffdf9;
+  --surface-alt:    #fef9f0;
+  --border:         #e8dfc8;
+  --border-focus:   #c9a96e;
+  --accent:         #c9793a;
+  --accent-dark:    #a35e25;
+  --accent-light:   #f3dfc1;
+  --text-primary:   #2c2416;
+  --text-secondary: #7a6a52;
+  --text-muted:     #b09a7a;
+  --success:        #4a7c59;
+  --success-bg:     #e8f5ec;
+  --danger:         #a33a2a;
+  --danger-bg:      #fdecea;
+  --danger-border:  #e8c4be;
+}
+
+/* ── Base ── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Sora', sans-serif !important;
+  background-color: var(--bg) !important;
+  color: var(--text-primary) !important;
+  min-height: 100vh;
+  line-height: 1.6;
+  background-image:
+    radial-gradient(ellipse 80% 60% at 10% 0%, rgba(201,121,58,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 90% 100%, rgba(201,169,110,0.08) 0%, transparent 55%);
+}
+
+/* ── Navbar ── */
+.navbar {
+  background-color: var(--surface) !important;
+  border-bottom: 1.5px solid var(--border) !important;
+  padding: 0 2rem !important;
+  min-height: 60px;
+  font-family: 'Sora', sans-serif !important;
+  box-shadow: 0 1px 6px rgba(60,40,10,0.07) !important;
+}
+
+.navbar-brand {
+  font-family: 'DM Serif Display', Georgia, serif !important;
+  font-size: 1.5rem !important;
+  color: var(--accent) !important;
+  letter-spacing: -0.01em;
+}
+
+.navbar-brand:hover { color: var(--accent-dark) !important; }
+
+.navbar-nav .nav-link {
+  font-family: 'Sora', sans-serif !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  color: var(--text-secondary) !important;
+  padding: 0.4rem 0.85rem !important;
+  border-radius: 6px !important;
+  transition: background 0.2s, color 0.2s;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
+  background: var(--accent-light) !important;
+  color: var(--accent-dark) !important;
+}
+
+.navbar-nav .nav-link.active {
+  background: var(--accent-light) !important;
+  color: var(--accent) !important;
+  font-weight: 600 !important;
+}
+
+.navbar-nav .nav-link.disabled {
+  color: var(--text-muted) !important;
+}
+
+.navbar-toggler {
+  border-color: var(--border) !important;
+}
+
+/* Dropdown */
+.dropdown-menu {
+  background: var(--surface) !important;
+  border: 1.5px solid var(--border) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 16px rgba(60,40,10,0.10) !important;
+  padding: 0.4rem !important;
+  font-family: 'Sora', sans-serif !important;
+}
+
+.dropdown-item {
+  font-size: 0.875rem !important;
+  color: var(--text-secondary) !important;
+  border-radius: 6px !important;
+  padding: 0.5rem 0.85rem !important;
+}
+
+.dropdown-item:hover {
+  background: var(--accent-light) !important;
+  color: var(--accent-dark) !important;
+}
+
+/* Navbar search */
+.navbar .form-control {
+  border: 1.5px solid var(--border) !important;
+  border-radius: 6px !important;
+  background: var(--bg) !important;
+  font-family: 'Sora', sans-serif !important;
+  font-size: 0.85rem !important;
+  color: var(--text-primary) !important;
+  box-shadow: none !important;
+}
+
+.navbar .form-control:focus {
+  border-color: var(--border-focus) !important;
+  box-shadow: 0 0 0 3px rgba(201,121,58,0.13) !important;
+}
+
+/* ── Page Container ── */
+.container, .container-fluid {
+  padding-top: 2.5rem !important;
+  padding-bottom: 4rem !important;
+}
+
+/* ── Headings ── */
+h1, h2, h3, h4 {
+  font-family: 'DM Serif Display', Georgia, serif !important;
+  color: var(--text-primary) !important;
+  letter-spacing: -0.01em;
+}
+
+h2 {
+  font-size: 1.75rem !important;
+  margin-bottom: 1.25rem !important;
+}
+
+h2::after {
+  content: '';
+  display: block;
+  width: 44px;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 2px;
+  margin-top: 0.4rem;
+}
+
+/* ── Card wrappers for .my-3 sections ── */
+.my-3 {
+  background: var(--surface) !important;
+  border: 1.5px solid var(--border) !important;
+  border-radius: 18px !important;
+  padding: 2rem 2.25rem !important;
+  box-shadow: 0 4px 16px rgba(60,40,10,0.08) !important;
+  animation: fadeUp 0.4s ease both;
+}
+
+/* accent top border on first card (Add To-Do form) */
+.container > .my-3:first-of-type,
+.container-fluid > .my-3:first-of-type {
+  border-top: 4px solid var(--accent) !important;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Form Labels ── */
+.form-label,
+label.form-label,
+label[for] {
+  font-family: 'Sora', sans-serif !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.07em !important;
+  text-transform: uppercase !important;
+  color: var(--text-secondary) !important;
+  margin-bottom: 0.4rem !important;
+}
+
+/* ── Inputs ── */
+input.form-control,
+textarea.form-control {
+  font-family: 'Sora', sans-serif !important;
+  font-size: 0.95rem !important;
+  color: var(--text-primary) !important;
+  background-color: var(--surface-alt) !important;
+  border: 1.5px solid var(--border) !important;
+  border-radius: 6px !important;
+  padding: 0.6rem 0.9rem !important;
+  box-shadow: none !important;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+input.form-control:focus,
+textarea.form-control:focus {
+  border-color: var(--border-focus) !important;
+  background-color: var(--surface) !important;
+  box-shadow: 0 0 0 3.5px rgba(201,121,58,0.13) !important;
+  outline: none !important;
+}
+
+input.form-control::placeholder,
+textarea.form-control::placeholder {
+  color: var(--text-muted) !important;
+}
+
+/* Hint text */
+.form-text,
+#TODO,
+#desc {
+  font-size: 0.78rem !important;
+  color: var(--text-muted) !important;
+}
+
+/* ── Buttons — Primary (Submit / Update page) ── */
+.btn-primary {
+  font-family: 'Sora', sans-serif !important;
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  background-color: var(--accent) !important;
+  border-color: var(--accent) !important;
+  color: #fff !important;
+  border-radius: 6px !important;
+  padding: 0.55rem 1.4rem !important;
+  box-shadow: 0 2px 8px rgba(201,121,58,0.25) !important;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+  letter-spacing: 0.02em;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--accent-dark) !important;
+  border-color: var(--accent-dark) !important;
+  box-shadow: 0 4px 14px rgba(201,121,58,0.35) !important;
+  color: #fff !important;
+}
+
+.btn-primary:active { transform: translateY(1px); }
+
+/* ── Buttons — Update (btn-outline-success) ── */
+.btn-outline-success {
+  font-family: 'Sora', sans-serif !important;
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
+  color: var(--success) !important;
+  border: 1.5px solid var(--success) !important;
+  background: transparent !important;
+  border-radius: 6px !important;
+  padding: 0.3rem 0.75rem !important;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.btn-outline-success:hover,
+.btn-outline-success:focus {
+  background-color: var(--success-bg) !important;
+  color: var(--success) !important;
+  box-shadow: 0 2px 8px rgba(74,124,89,0.15) !important;
+}
+
+/* ── Buttons — Delete ── */
+.btn-outline-danger,
+.btn-danger {
+  font-family: 'Sora', sans-serif !important;
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
+  color: var(--danger) !important;
+  border: 1.5px solid var(--danger) !important;
+  background: transparent !important;
+  border-radius: 6px !important;
+  padding: 0.3rem 0.75rem !important;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.btn-outline-danger:hover,
+.btn-outline-danger:focus,
+.btn-danger:hover {
+  background-color: var(--danger-bg) !important;
+  color: var(--danger) !important;
+  box-shadow: 0 2px 8px rgba(163,58,42,0.15) !important;
+}
+
+/* ── Table ── */
+.table {
+  font-family: 'Sora', sans-serif !important;
+  font-size: 0.88rem !important;
+  border-collapse: collapse !important;
+  width: 100% !important;
+  margin-bottom: 0 !important;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.table thead tr {
+  background-color: var(--surface-alt) !important;
+}
+
+.table thead th {
+  font-size: 0.7rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.09em !important;
+  text-transform: uppercase !important;
+  color: var(--text-muted) !important;
+  padding: 0.85rem 1rem !important;
+  border-bottom: 2px solid var(--border) !important;
+  border-top: none !important;
+  background-color: var(--surface-alt) !important;
+  white-space: nowrap;
+}
+
+.table tbody td {
+  padding: 0.85rem 1rem !important;
+  border-top: none !important;
+  border-bottom: 1px solid var(--border) !important;
+  color: var(--text-primary) !important;
+  background-color: var(--surface) !important;
+  vertical-align: middle !important;
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none !important;
+}
+
+.table tbody tr:hover td {
+  background-color: var(--surface-alt) !important;
+}
+
+.table tbody td:first-child {
+  font-weight: 700 !important;
+  color: var(--accent) !important;
+}
+
+.table tbody td:nth-child(5) {
+  font-size: 0.76rem !important;
+  color: var(--text-muted) !important;
+  white-space: nowrap;
+}
+
+/* Wrap table in rounded border */
+.table-responsive {
+  border: 1.5px solid var(--border) !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+}
+
+/* ── Alert (no to-dos message) ── */
+.alert {
+  font-family: 'Sora', sans-serif !important;
+  font-size: 0.9rem !important;
+  border-radius: 10px !important;
+  padding: 0.85rem 1.1rem !important;
+}
+
+.alert-info {
+  background: #e8f3fb !important;
+  color: #1a5a8a !important;
+  border-color: #b8d8f0 !important;
+}
+
+.alert-success {
+  background: var(--success-bg) !important;
+  color: var(--success) !important;
+  border-color: #b8d9c2 !important;
+}
+
+.alert-danger, .alert-error {
+  background: var(--danger-bg) !important;
+  color: var(--danger) !important;
+  border-color: var(--danger-border) !important;
+}
+
+.alert-warning {
+  background: #fef8e7 !important;
+  color: #7a5500 !important;
+  border-color: #f0d88a !important;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+/* ── Responsive ── */
+@media (max-width: 680px) {
+  .my-3 { padding: 1.25rem 1rem !important; }
+  h2 { font-size: 1.35rem !important; }
+}
